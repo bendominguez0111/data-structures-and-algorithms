@@ -55,10 +55,3 @@ if __name__ == '__main__':
     visited = ', '.join([node.key for node in visited])
     
     print(visited)
-
-
-
-
-
-
-        
