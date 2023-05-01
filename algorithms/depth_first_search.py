@@ -28,15 +28,27 @@ class Graph:
             self.add_node(to_key)
 
         self.nodes[from_key].add_neighbor(self.nodes[to_key], weight)
+        self.nodes[to_key].add_neighbor(self.nodes[from_key], weight) # add bidirectionality
 
     def get_node(self, key:str):
         return self.nodes.get(key)
 
-def depth_first_search(graph, node=None, visited=[]):
+def dfs(graph, node=None, visited=[]):
     if node not in visited:
         visited.append(node)
         for neighbor in node.neighbors:
-            depth_first_search(graph, neighbor, visited)
+            dfs(graph, neighbor, visited)
+
+    return visited
+
+def dfs_choose_highest_weight(graph, node=None, visited=[]):
+    """Find the search path based off the highest weights
+    """
+    if node not in visited:
+        visited.append(node)
+        search_space = sorted(node.neighbors.items(), key=lambda x:x[1], reverse=True)
+        for elem in search_space:
+            dfs_choose_highest_weight(graph, elem[0], visited)
 
     return visited
 
@@ -51,7 +63,12 @@ if __name__ == '__main__':
     graph.add_edge(from_key="3", to_key="2", weight=2)
     graph.add_edge(from_key="1", to_key="2", weight=1)
 
-    visited = depth_first_search(graph, graph.get_node("0"))
+    visited = dfs(graph, graph.get_node("0"))
     visited = ', '.join([node.key for node in visited])
     
-    print(visited)
+    print(visited) # 0, 4, 1, 3, 2
+
+    visited = dfs_choose_highest_weight(graph, graph.get_node("0"))
+    visited = ', '.join([node.key for node in visited])
+
+    print(visited) # 0, 4, 3, 1, 2
