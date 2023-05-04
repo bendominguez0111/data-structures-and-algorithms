@@ -38,12 +38,13 @@ class LinkedList:
         insert_node.next_node = new_node
         return
 
-e = Node(value='E', next_node=None)
-d = Node(value='D', next_node=e)
-c = Node(value='C', next_node=d)
-b = Node(value='B', next_node=c)
-a = Node(value='A', next_node=b)
+if __name__ == '__main__':
+    e = Node(value='E', next_node=None)
+    d = Node(value='D', next_node=e)
+    c = Node(value='C', next_node=d)
+    b = Node(value='B', next_node=c)
+    a = Node(value='A', next_node=b)
 
-linked_list = LinkedList(head=a)
-linked_list.insert_new_node(insert_val='F', in_front='C')
-print(linked_list.show_list())
+    linked_list = LinkedList(head=a)
+    linked_list.insert_new_node(insert_val='F', in_front='C')
+    print(linked_list.show_list())

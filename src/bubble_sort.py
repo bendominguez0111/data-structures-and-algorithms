@@ -2,7 +2,7 @@
 Given an unsorted array, do a bubble sort O(n^2) to sort the array.
 """
 
-arr = [5, 2, 3, 10, 8, 7, 16, 2, 1, 1, 4]
+
 
 def bubble_sort(arr):
 
@@ -15,5 +15,7 @@ def bubble_sort(arr):
 
     return arr
 
-sorted_arr = bubble_sort(arr)
-print(sorted_arr) #[1, 1, 2, 2, 3, 4, 5, 7, 8, 10, 16]
+if __name__ == '__main__':
+    arr = [5, 2, 3, 10, 8, 7, 16, 2, 1, 1, 4]
+    sorted_arr = bubble_sort(arr)
+    print(sorted_arr) #[1, 1, 2, 2, 3, 4, 5, 7, 8, 10, 16]

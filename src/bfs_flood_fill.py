@@ -12,12 +12,7 @@
 #[[1, 0, 0, 0]]
 #[[2, 3, 3, 0]]
 
-matrix = [
-    [2, 1, 2, 2],
-    [1, 1, 2, 3],
-    [1, 2, 2, 2],
-    [2, 3, 3, 2]
-]
+
 
 from collections import deque
 from pprint import pprint
@@ -48,6 +43,13 @@ def flood_fill(matrix, start_row, start_col, new_value):
     return matrix
 
 if __name__ == "__main__":
+
+    matrix = [
+        [2, 1, 2, 2],
+        [1, 1, 2, 3],
+        [1, 2, 2, 2],
+        [2, 3, 3, 2]
+    ]
 
     print('Old matrix:\n')
 
